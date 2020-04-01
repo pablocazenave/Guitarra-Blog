@@ -1,28 +1,39 @@
+{% load static %}
+
+
 <html>
 
     <head>
         <title>GuitarBlog - Bloguitarra</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">            
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     </head>
 
 <body>
-
-    <div>
-        <h1><a href="/">Ir a Bloguitarra</a></h1>
+   
+    <div class="page-header">
+        <h1><a href="http://bloguitarra.pythonanywhere.com/">Bloguitarra de Pablo</a></h1>
     </div>
 
-    <div>
-        <p>published: 14.03.2020, 12:14</p>
-        <h2><a href="">El primer post macumbero</a></h2>
-        <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% for post in posts %}
+                    <div class="post">
+                        <div class="date">
+                            <p>publicado: {{ post.published_date }}</p>
+                        </div>
+                        <h2><a href="">{{ post.title }}</a></h2>
+                        <p>{{ post.text|linebreaksbr }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-
-    <div>
-        <p>published: 14.02.2020, 12:14</p>
-        <h3><a href="">El segundo post macumbeado</a></h3>
-        <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-    </div>
-
+  
     <p>Holassssamigo!</p>
-        <p>Ahora tiene contenido!</p>
+    <p>Ahora tiene contenido!</p>
 </body>
 </html>

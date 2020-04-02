@@ -23,17 +23,23 @@
                 {% for post in posts %}
                     <div class="post">
                         <div class="date">
-                            <p>publicado: {{ post.published_date }}</p>
+                            <p>Fecha de publicación: {{ post.published_date }}</p>
                         </div>
                         <h2><a href="">{{ post.title }}</a></h2>
                         <p>{{ post.text|linebreaksbr }}</p>
                     </div>
                 {% endfor %}
+                
             </div>
         </div>
     </div>
-  
-    <p>Holassssamigo!</p>
-    <p>Ahora tiene contenido!</p>
+   
+    <div class="content container">
+        <p><h4><a href="http://facebook.com/bloguitarra">fb</a></h4></p>
+        <p><h4><a href="http://instagram.com/bloguitarra">ig</a><h4></p>
+        <p><h4><a href="http://twitter.com/bloguitarra">tw</a></h4/p>
+    </div>   
+    
+    <p>Testeo</p> 
 </body>
 </html>

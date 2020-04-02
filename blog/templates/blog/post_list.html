@@ -1,45 +1,14 @@
-{% load static %}
+{% extends 'blog/base.html' %}
 
-
-<html>
-
-    <head>
-        <title>GuitarBlog - Bloguitarra</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">            
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    </head>
-
-<body>
-   
-    <div class="page-header">
-        <h1><a href="http://bloguitarra.pythonanywhere.com/">Bloguitarra de Pablo</a></h1>
-    </div>
-
-    <div class="content container">
-        <div class="row">
-            <div class="col-md-8">
-                {% for post in posts %}
-                    <div class="post">
-                        <div class="date">
-                            <p>Fecha de publicación: {{ post.published_date }}</p>
-                        </div>
-                        <h2><a href="">{{ post.title }}</a></h2>
-                        <p>{{ post.text|linebreaksbr }}</p>
-                    </div>
-                {% endfor %}
-                
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
             </div>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-    </div>
-   
-    <div class="content container">
-        <p><h4><a href="http://facebook.com/bloguitarra">fb</a></h4></p>
-        <p><h4><a href="http://instagram.com/bloguitarra">ig</a><h4></p>
-        <p><h4><a href="http://twitter.com/bloguitarra">tw</a></h4/p>
-    </div>   
-    
-    <p>Testeo</p> 
-</body>
-</html>
+    {% endfor %}
+{% endblock %}
+                
